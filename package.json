@@ -25,6 +25,7 @@
     "react-dom": "16.0.0",
     "react-modal": "^3.10.1",
     "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "validator": "^11.1.0",
