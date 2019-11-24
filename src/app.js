@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import './styles/styles.scss';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
@@ -25,17 +26,18 @@ const secondNote = store.dispatch(
   })
 );
 
-// store.dispatch(removeNote({ id: firstNote.note.id }));
-
-// store.dispatch(editNote(secondNote.note.id, { derdie: 'das' }));
-
 store.dispatch(setFamilyFilter('animals'));
-
 store.dispatch(sortByFamily());
-
 store.dispatch(setFamilyFilter(''));
 
 const state = store.getState();
 const visibleNotes = getVisibleNotes(state.notes, state.filters);
 console.log(visibleNotes);
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
