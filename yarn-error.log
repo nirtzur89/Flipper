@@ -31,8 +31,8 @@ npm manifest:
     },
     "dependencies": {
       "@babel/core": "^7.6.3",
-      "babel": "^6.23.0",
-      "babel-core": "^6.26.3",
+      "babel": "^7",
+      "babel-core": "^7",
       "babel-loader": "7",
       "babel-plugin-transform-class-properties": "^6.24.1",
       "babel-preset": "^1.0.15",
