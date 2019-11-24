@@ -6,7 +6,7 @@ module.exports = env => {
   const isProduction = env === 'production';
   const CSSExtract = new MiniCssExtractTextPlugin({ filename: 'styles.css' });
   return {
-    entry: './src/playground/redux-start.js',
+    entry: './src/app.js',
     output: {
       path: path.join(__dirname, 'public'),
       filename: 'bundle.js'
