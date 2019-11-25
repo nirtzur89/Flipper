@@ -1,21 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { removeNote } from '../actions/notes';
+import { Link } from 'react-router-dom';
 
 const WordsListItem = ({ word, translation, family, id, dispatch }) => (
   <div>
-    <h4>{word}</h4>
+    <Link to={`/words/${id}`}>
+      <h4>{word}</h4>
+    </Link>
     <p>
       meaning: {translation} - family: {family}
     </p>
-    <button
-      onClick={() => {
-        dispatch(removeNote({ id }));
-      }}
-    >
-      Remove
-    </button>
   </div>
 );
 
-export default connect()(WordsListItem);
+export default WordsListItem;

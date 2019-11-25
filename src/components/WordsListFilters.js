@@ -1,33 +1,55 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import WordsListItem from './WordsListItem';
-import { setWordFilter, sortByDate, sortByWord } from '../actions/filters';
+import { DateRangePicker } from 'react-dates';
+import {
+  setWordFilter,
+  sortByDate,
+  sortByWord,
+  setEndDate,
+  setStartDate
+} from '../actions/filters';
 
-const WordsListFilters = props => (
-  <div>
-    <h4>search word</h4>
-    <input
-      type='text'
-      value={props.filters.family}
-      onChange={e => {
-        props.dispatch(setWordFilter(e.target.value));
-      }}
-    />
-    <select
-      value={props.filters.sortBy}
-      onChange={e => {
-        if (e.target.value === 'date') {
-          props.dispatch(sortByDate());
-        } else if (e.target.value === 'word') {
-          props.dispatch(sortByWord());
-        }
-      }}
-    >
-      <option value='date'>Date</option>
-      <option value='word'>Word</option>
-    </select>
-  </div>
-);
+class WordsListFilters extends React.Component {
+  state = {
+    calendarFocused: null
+  };
+  // onDatesChange = ({ startDate, endDate }) => {
+  //   this.props.dispatch(setStartDate(startDate));
+  //   this.props.dispatch(setEndDate(endDate));
+  // };
+
+  // onFocusChange = calendarFocused => {
+  //   this.setState(() => ({ calendarFocused }));
+  // };
+  render() {
+    return (
+      <div>
+        <h4>search word</h4>
+        <input
+          type='text'
+          value={this.props.filters.family}
+          onChange={e => {
+            this.props.dispatch(setWordFilter(e.target.value));
+          }}
+        />
+        <select
+          value={this.props.filters.sortBy}
+          onChange={e => {
+            if (e.target.value === 'date') {
+              this.props.dispatch(sortByDate());
+            } else if (e.target.value === 'word') {
+              this.props.dispatch(sortByWord());
+            }
+          }}
+        >
+          <option value='date'>Date</option>
+          <option value='word'>Word</option>
+        </select>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {
@@ -36,3 +58,11 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(WordsListFilters);
+
+// <DateRangePicker
+//   startDate={this.props.filters.startDate}
+//   endDate={this.props.filters.endDate}
+//   onDatesChange={this.onDatesChange}
+//   focusedInput={this.state.calendarFocused}
+//   onFocusChange={this.onFocusChange}
+// />;

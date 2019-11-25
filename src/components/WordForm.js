@@ -2,14 +2,19 @@ import React from 'react';
 import moment from 'moment';
 
 export default class WordForm extends React.Component {
-  state = {
-    word: '',
-    translation: '',
-    derdie: '',
-    family: '',
-    createdAt: moment(),
-    error: ''
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      word: props.note ? props.note.word : '',
+      translation: props.note ? props.note.translation : '',
+      derdie: props.note ? props.note.derdie : '',
+      family: props.note ? props.note.family : '',
+      createdAt: props.note ? moment(props.note.createdAt) : moment(),
+      error: ''
+    };
+  }
+
   onWordChange = e => {
     const word = e.target.value;
     this.setState(() => ({ word }));
@@ -41,7 +46,9 @@ export default class WordForm extends React.Component {
       });
     }
   };
+
   render() {
+    console.log('props', this.props);
     return (
       <div>
         {this.state.error && <p>{this.state.error}</p>}
@@ -50,7 +57,7 @@ export default class WordForm extends React.Component {
             type='text'
             placeholder='word'
             autoFocus
-            value={this.state.description}
+            value={this.state.word}
             onChange={this.onWordChange}
           ></input>
           <select value={this.state.derdie} onChange={this.onDerdieChange}>
@@ -70,7 +77,7 @@ export default class WordForm extends React.Component {
             value={this.state.family}
             onChange={this.onFamilyChange}
           ></input>
-          <button>Add Word</button>
+          <button>Submit Word</button>
         </form>
       </div>
     );

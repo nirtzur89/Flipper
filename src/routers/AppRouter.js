@@ -5,7 +5,7 @@ import NotFound from '../components/NotFound';
 import Help from '../components/Help';
 import Home from '../components/Home';
 import WordsList from '../components/WordsList';
-import Word from '../components/Word';
+import EditWord from '../components/EditWord';
 import AddWords from '../components/AddWords';
 
 const AppRouter = () => (
@@ -16,7 +16,7 @@ const AppRouter = () => (
         <Route path='/' component={Home} exact={true} />
         <Route path='/add' component={AddWords} exact={true} />
         <Route path='/words' component={WordsList} exact={true} />
-        <Route path='/words/:id' component={Word} />
+        <Route path='/words/:id' component={EditWord} />
         <Route path='/contact' component={Help} />
         <Route component={NotFound} />
       </Switch>
