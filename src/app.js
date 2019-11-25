@@ -26,9 +26,14 @@ const secondNote = store.dispatch(
   })
 );
 
-store.dispatch(setFamilyFilter('animals'));
-store.dispatch(sortByFamily());
-store.dispatch(setFamilyFilter(''));
+store.dispatch(
+  addNote({
+    word: 'toll',
+    translation: 'nice',
+    createdAt: 10000,
+    family: 'adjectives'
+  })
+);
 
 const state = store.getState();
 const visibleNotes = getVisibleNotes(state.notes, state.filters);

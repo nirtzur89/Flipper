@@ -1,15 +1,15 @@
 //SORT_BY_FAMILY
-export const setFamilyFilter = (family = '') => ({
-  type: 'FAMILY_FILTER',
-  family
+export const setWordFilter = (word = '') => ({
+  type: 'WORD_FILTER',
+  word
 });
 //SORT_BY_DATE
 export const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });
 //SORT_BY_FAMILYS
-export const sortByFamily = () => ({
-  type: 'SORT_BY_FAMILY'
+export const sortByWord = () => ({
+  type: 'SORT_BY_WORD'
 });
 //SET_START_DATE
 export const setStartDate = startDate => ({

@@ -1,21 +1,21 @@
 //Filters reducer
 const filtersReducerDefaultState = {
-  family: '',
+  word: '',
   sortBy: 'date',
   startDate: undefined,
   endDate: undefined
 };
 export default (state = filtersReducerDefaultState, action) => {
   switch (action.type) {
-    case 'FAMILY_FILTER':
+    case 'WORD_FILTER':
       return {
         ...state,
-        family: action.family
+        word: action.word
       };
-    case 'SORT_BY_FAMILY':
+    case 'SORT_BY_WORD':
       return {
         ...state,
-        sortBy: 'family'
+        sortBy: 'word'
       };
     case 'SORT_BY_DATE':
       return {
